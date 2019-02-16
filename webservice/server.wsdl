@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" name="WebserviceMSF" targetNamespace="http://10.229.100.199/webservice/" xmlns:tns="http://10.229.100.199/webservice/" xmlns:impl="http://10.229.100.199/webservice/" xmlns:xsd1="http://10.229.100.199/webservice/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+  <types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://10.229.100.199/webservice/">
+      <complexType name="ArrayOfstring">
+        <complexContent>
+          <restriction base="soapenc:Array">
+            <attribute ref="soapenc:arrayType" wsdl:arrayType="xsd:string[]"/>
+          </restriction>
+        </complexContent>
+      </complexType>
+    </schema>
+  </types>
+  <portType name="WebserviceMSFPortType">
+    <operation name="DisplayReturn">
+      <input message="tns:DisplayReturnRequest"/>
+    </operation>
+    <operation name="DisplayTranslationReturn">
+      <input message="tns:DisplayTranslationReturnRequest"/>
+    </operation>
+    <operation name="getHelloWorld">
+      <input message="tns:GetHelloWorldRequest"/>
+      <output message="tns:GetHelloWorldResponse"/>
+    </operation>
+    <operation name="login" parameterOrder="username password">
+      <input message="tns:LoginRequest"/>
+      <output message="tns:LoginResponse"/>
+    </operation>
+    <operation name="cancel" parameterOrder="jobid">
+      <input message="tns:CancelRequest"/>
+      <output message="tns:CancelResponse"/>
+    </operation>
+    <operation name="delete" parameterOrder="filename">
+      <input message="tns:DeleteRequest"/>
+      <output message="tns:DeleteResponse"/>
+    </operation>
+    <operation name="logout">
+      <input message="tns:LogoutRequest"/>
+      <output message="tns:LogoutResponse"/>
+    </operation>
+    <operation name="waitandgetresult" parameterOrder="jobid format">
+      <input message="tns:WaitandgetresultRequest"/>
+      <output message="tns:WaitandgetresultResponse"/>
+    </operation>
+    <operation name="result" parameterOrder="jobid format">
+      <input message="tns:ResultRequest"/>
+      <output message="tns:ResultResponse"/>
+    </operation>
+    <operation name="status" parameterOrder="jobid">
+      <input message="tns:StatusRequest"/>
+      <output message="tns:StatusResponse"/>
+    </operation>
+    <operation name="translation" parameterOrder="jobid destlang">
+      <input message="tns:TranslationRequest"/>
+      <output message="tns:TranslationResponse"/>
+    </operation>
+    <operation name="texttranslation" parameterOrder="text srclang destlang">
+      <input message="tns:TexttranslationRequest"/>
+      <output message="tns:TexttranslationResponse"/>
+    </operation>
+    <operation name="trans" parameterOrder="filename type language channel quality duration corpus callback gpgkey resultinfo">
+      <input message="tns:TransRequest"/>
+      <output message="tns:TransResponse"/>
+    </operation>
+    <operation name="alignment" parameterOrder="filename type language textfiletoalign callback">
+      <input message="tns:AlignmentRequest"/>
+      <output message="tns:AlignmentResponse"/>
+    </operation>
+    <operation name="lid" parameterOrder="filename typeaudio offset duration callback">
+      <input message="tns:LidRequest"/>
+      <output message="tns:LidResponse"/>
+    </operation>
+    <operation name="part" parameterOrder="filename type channel speaker">
+      <input message="tns:PartRequest"/>
+      <output message="tns:PartResponse"/>
+    </operation>
+    <operation name="upload" parameterOrder="filename fileContent">
+      <input message="tns:UploadRequest"/>
+      <output message="tns:UploadResponse"/>
+    </operation>
+    <operation name="senddata" parameterOrder="destinations text">
+      <input message="tns:SenddataRequest"/>
+      <output message="tns:SenddataResponse"/>
+    </operation>
+    <operation name="sid" parameterOrder="filename type modelname callback">
+      <input message="tns:SidRequest"/>
+      <output message="tns:SidResponse"/>
+    </operation>
+    <operation name="SetSource">
+      <input message="tns:SetSourceRequest"/>
+    </operation>
+    <operation name="script_trans">
+      <input message="tns:Script_transRequest"/>
+      <output message="tns:Script_transResponse"/>
+    </operation>
+  </portType>
+  <binding name="WebserviceMSFBinding" type="tns:WebserviceMSFPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="DisplayReturn">
+      <soap:operation soapAction="urn:WebserviceMSF#WebserviceMSFServer#DisplayReturn"/>
+      <input>
+        <soap:body use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+    </operation>
+    <operation name="DisplayTranslationReturn">
+      <soap:operation soapAction="urn:WebserviceMSF#WebserviceMSFServer#DisplayTranslationReturn"/>
+      <input>
+        <soap:body use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+    </operation>
+    <operation name="getHelloWorld">
+      <soap:operation soapAction="urn:WebserviceMSF#WebserviceMSFServer#getHelloWorld"/>
+      <input>
+        <soap:body use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body parts="return" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="login">
+      <soap:operation soapAction="urn:WebserviceMSF#WebserviceMSFServer#login"/>
+      <input>
+        <soap:body parts="username password" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body parts="return" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="cancel">
+      <soap:operation soapAction="urn:WebserviceMSF#WebserviceMSFServer#cancel"/>
+      <input>
+        <soap:body parts="jobid" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body parts="return" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="delete">
+      <soap:operation soapAction="urn:WebserviceMSF#WebserviceMSFServer#delete"/>
+      <input>
+        <soap:body parts="filename" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body parts="return" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="logout">
+      <soap:operation soapAction="urn:WebserviceMSF#WebserviceMSFServer#logout"/>
+      <input>
+        <soap:body use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body parts="return" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="waitandgetresult">
+      <soap:operation soapAction="urn:WebserviceMSF#WebserviceMSFServer#waitandgetresult"/>
+      <input>
+        <soap:body parts="jobid format" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body parts="return" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="result">
+      <soap:operation soapAction="urn:WebserviceMSF#WebserviceMSFServer#result"/>
+      <input>
+        <soap:body parts="jobid format" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body parts="return" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="status">
+      <soap:operation soapAction="urn:WebserviceMSF#WebserviceMSFServer#status"/>
+      <input>
+        <soap:body parts="jobid" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body parts="return" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="translation">
+      <soap:operation soapAction="urn:WebserviceMSF#WebserviceMSFServer#translation"/>
+      <input>
+        <soap:body parts="jobid destlang" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body parts="return" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="texttranslation">
+      <soap:operation soapAction="urn:WebserviceMSF#WebserviceMSFServer#texttranslation"/>
+      <input>
+        <soap:body parts="text srclang destlang" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body parts="return" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="trans">
+      <soap:operation soapAction="urn:WebserviceMSF#WebserviceMSFServer#trans"/>
+      <input>
+        <soap:body parts="filename type language channel quality duration corpus callback gpgkey resultinfo" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body parts="return" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="alignment">
+      <soap:operation soapAction="urn:WebserviceMSF#WebserviceMSFServer#alignment"/>
+      <input>
+        <soap:body parts="filename type language textfiletoalign callback" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body parts="return" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="lid">
+      <soap:operation soapAction="urn:WebserviceMSF#WebserviceMSFServer#lid"/>
+      <input>
+        <soap:body parts="filename typeaudio offset duration callback" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body parts="return" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="part">
+      <soap:operation soapAction="urn:WebserviceMSF#WebserviceMSFServer#part"/>
+      <input>
+        <soap:body parts="filename type channel speaker" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body parts="return" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="upload">
+      <soap:operation soapAction="urn:WebserviceMSF#WebserviceMSFServer#upload"/>
+      <input>
+        <soap:body parts="filename fileContent" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body parts="return" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="senddata">
+      <soap:operation soapAction="urn:WebserviceMSF#WebserviceMSFServer#senddata"/>
+      <input>
+        <soap:body parts="destinations text" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body parts="return" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="sid">
+      <soap:operation soapAction="urn:WebserviceMSF#WebserviceMSFServer#sid"/>
+      <input>
+        <soap:body parts="filename type modelname callback" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body parts="return" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="SetSource">
+      <soap:operation soapAction="urn:WebserviceMSF#WebserviceMSFServer#SetSource"/>
+      <input>
+        <soap:body use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+    </operation>
+    <operation name="script_trans">
+      <soap:operation soapAction="urn:WebserviceMSF#WebserviceMSFServer#script_trans"/>
+      <input>
+        <soap:body use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body parts="return" use="encoded" namespace="http://10.229.100.199/webservice/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <message name="DisplayReturnRequest"/>
+  <message name="DisplayTranslationReturnRequest"/>
+  <message name="GetHelloWorldRequest"/>
+  <message name="GetHelloWorldResponse">
+    <part name="return" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="LoginRequest">
+    <part name="username" type="xsd:string"/>
+    <part name="password" type="xsd:string"/>
+  </message>
+  <message name="LoginResponse">
+    <part name="return" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="CancelRequest">
+    <part name="jobid" type="xsd:string"/>
+  </message>
+  <message name="CancelResponse">
+    <part name="return" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="DeleteRequest">
+    <part name="filename" type="xsd:string"/>
+  </message>
+  <message name="DeleteResponse">
+    <part name="return" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="LogoutRequest"/>
+  <message name="LogoutResponse">
+    <part name="return" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="WaitandgetresultRequest">
+    <part name="jobid" type="xsd:string"/>
+    <part name="format" type="xsd:string"/>
+  </message>
+  <message name="WaitandgetresultResponse">
+    <part name="return" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="ResultRequest">
+    <part name="jobid" type="xsd:string"/>
+    <part name="format" type="xsd:string"/>
+  </message>
+  <message name="ResultResponse">
+    <part name="return" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="StatusRequest">
+    <part name="jobid" type="xsd:string"/>
+  </message>
+  <message name="StatusResponse">
+    <part name="return" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="TranslationRequest">
+    <part name="jobid" type="xsd:string"/>
+    <part name="destlang" type="xsd:string"/>
+  </message>
+  <message name="TranslationResponse">
+    <part name="return" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="TexttranslationRequest">
+    <part name="text" type="xsd:string"/>
+    <part name="srclang" type="xsd:string"/>
+    <part name="destlang" type="xsd:string"/>
+  </message>
+  <message name="TexttranslationResponse">
+    <part name="return" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="TransRequest">
+    <part name="filename" type="xsd:string"/>
+    <part name="type" type="xsd:string"/>
+    <part name="language" type="xsd:string"/>
+    <part name="channel" type="xsd:int"/>
+    <part name="quality" type="xsd:int"/>
+    <part name="duration" type="xsd:int"/>
+    <part name="corpus" type="xsd:string"/>
+    <part name="callback" type="xsd:string"/>
+    <part name="gpgkey" type="xsd:string"/>
+    <part name="resultinfo" type="xsd:string"/>
+  </message>
+  <message name="TransResponse">
+    <part name="return" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="AlignmentRequest">
+    <part name="filename" type="xsd:string"/>
+    <part name="type" type="xsd:string"/>
+    <part name="language" type="xsd:string"/>
+    <part name="textfiletoalign" type="xsd:string"/>
+    <part name="callback" type="xsd:string"/>
+  </message>
+  <message name="AlignmentResponse">
+    <part name="return" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="LidRequest">
+    <part name="filename" type="xsd:string"/>
+    <part name="typeaudio" type="xsd:string"/>
+    <part name="offset" type="xsd:int"/>
+    <part name="duration" type="xsd:int"/>
+    <part name="callback" type="xsd:string"/>
+  </message>
+  <message name="LidResponse">
+    <part name="return" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="PartRequest">
+    <part name="filename" type="xsd:string"/>
+    <part name="type" type="xsd:string"/>
+    <part name="channel" type="xsd:int"/>
+    <part name="speaker" type="xsd:int"/>
+  </message>
+  <message name="PartResponse">
+    <part name="return" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="UploadRequest">
+    <part name="filename" type="xsd:string"/>
+    <part name="fileContent" type="xsd:string"/>
+  </message>
+  <message name="UploadResponse">
+    <part name="return" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="SenddataRequest">
+    <part name="destinations" type="xsd:string"/>
+    <part name="text" type="xsd:string"/>
+  </message>
+  <message name="SenddataResponse">
+    <part name="return" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="SidRequest">
+    <part name="filename" type="xsd:string"/>
+    <part name="type" type="xsd:string"/>
+    <part name="modelname" type="xsd:string"/>
+    <part name="callback" type="xsd:string"/>
+  </message>
+  <message name="SidResponse">
+    <part name="return" type="tns:ArrayOfstring"/>
+  </message>
+  <message name="SetSourceRequest"/>
+  <message name="Script_transRequest"/>
+  <message name="Script_transResponse">
+    <part name="return" type="xsd:int"/>
+  </message>
+  <service name="WebserviceMSFService">
+    <port name="WebserviceMSFPort" binding="tns:WebserviceMSFBinding">
+      <soap:address location="http://10.229.100.199/webservice/index.php"/>
+    </port>
+  </service>
+</definitions>
